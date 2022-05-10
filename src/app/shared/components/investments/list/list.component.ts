@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Investment} from "../../../models/investment";
+import {ListInvestmentsService} from "../../../services/list-investments.service";
 
 @Component({
   selector: 'app-list',
@@ -8,24 +9,17 @@ import {Investment} from "../../../models/investment";
 })
 export class ListComponent implements OnInit {
 
-  public assets: Array<Investment> = [
-    {
-      name: 'Oi Br',
-      value: 0.70
-    },
-    {
-      name: 'Itausa',
-      value: 13
-    },
-    {
-      name: 'Petrobras',
-      value: 21
-    }
-  ];
+  public assets!: Array<Investment> ;
 
-  constructor() { }
+
+  constructor(private listInvestmentService: ListInvestmentsService) {
+  }
 
   ngOnInit(): void {
+    this.listInvestmentService.list()
+      .subscribe(
+        res => this.assets = res
+      )
   }
 
 }
