@@ -1,0 +1,17 @@
+<p>
+  <strong>Olá, Luan Roger</strong> <br>
+  Ag: 9999, CO: 99999-9
+</p>
+
+<p>
+  Poupança: R$ <span id="poupanca-show">{{poupanca}}</span> <br>
+  <input id="sacar-input" type="text" name="saque" #saque><br>
+  <button id="sacar" (click)="sacar(saque.value)">Sacar</button>
+</p>
+<p>
+  Carteira: R$ <span id="carteira-show">{{carteira}}</span> <br>
+  <input id="depositar-input" type="text" name="deposito" #deposito> <br>
+  <button id='depositar' (click)="depositar(deposito.value)">Depositar</button>
+</p>
+
+<app-list></app-list>
